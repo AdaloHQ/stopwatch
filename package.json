@@ -1,0 +1,47 @@
+{
+  "name": "stopwatch",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "adalo dev",
+    "build": "adalo build",
+    "login": "adalo login",
+    "publish": "adalo publish",
+    "lint": "eslint src --ext .js",
+    "prettier": "prettier --write *.js src/*.js \"src/**/*.js\"",
+    "start:local": "ADALO_DEV_SERVER=http://localhost:3035 yarn start",
+    "login:local": "ADALO_BACKEND_SERVER=http://localhost:8084 yarn run login"
+  },
+  "peerDependencies": {},
+  "adalo": {
+    "displayName": "Stopwatch",
+    "components": [
+      {
+        "name": "Stopwatch",
+        "manifest": "./src/components/Stopwatch/manifest.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@adalo/cli": "^0.0.30",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-prettier": "6.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "prettier": "^1.19.1"
+  },
+  "dependencies": {
+    "@protonapp/react-native-material-ui": "^2.0.4",
+    "moment": "^2.26.0",
+    "react-native-vector-icons": "6.0.2"
+  }
+}
