@@ -20,7 +20,7 @@
       "name": "iconFullWidth",
       "displayName": "Spread Icons to the Full Width?",
       "type": "boolean",
-      "default": true
+      "default": false
     },
 
     {
@@ -48,7 +48,7 @@
           "default": "#757575"
         },
         {
-          "name": "action",
+          "name": "startAction",
           "displayName": "Action",
           "type": "action"
         }
@@ -71,7 +71,7 @@
           "default": "#757575"
         },
         {
-          "name": "action",
+          "name": "pauseAction",
           "displayName": "Action",
           "type": "action"
         }
@@ -94,7 +94,7 @@
           "default": "#757575"
         },
         {
-          "name": "action",
+          "name": "resetAction",
           "displayName": "Action",
           "type": "action"
         }
@@ -132,7 +132,7 @@
           "name": "lapColor",
           "displayName": "Lap Text Color",
           "type": "color",
-          "default": "#DB4F4F"
+          "default": "@primary"
         },
         {
           "name": "lapTextSize",
@@ -141,9 +141,21 @@
           "default": "12"
         },
         {
-          "name": "action",
+          "name": "lapAction",
           "displayName": "Action",
-          "type": "action"
+          "type": "action",
+          "arguments": [
+            {
+              "type": "number",
+              "displayName": "Time (milliseconds)",
+              "fieldId": "lapTimeNumber"
+            },
+            {
+              "type": "text",
+              "displayName": "Time (text)",
+              "fieldId": "lapTimeString"
+            }
+          ]
         }
       ]
     }

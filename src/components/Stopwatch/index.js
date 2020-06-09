@@ -51,7 +51,7 @@ class Stopwatch extends Component {
 
   start = () => {
     const {
-      startButton: { action },
+      startButton: { startAction },
     } = this.props
     const now = new Date().getTime()
     if (this.state.timeBeforePause == 0) {
@@ -68,7 +68,7 @@ class Stopwatch extends Component {
         now,
       })
     }
-    if (action) action()
+    if (startAction) startAction()
     this.timer = setInterval(() => {
       this.setState({ now: new Date().getTime() })
     }, 10)
@@ -77,9 +77,9 @@ class Stopwatch extends Component {
   pause = () => {
     clearInterval(this.timer)
     const {
-      pauseButton: { action },
+      pauseButton: { pauseAction },
     } = this.props
-    if (action) action()
+    if (pauseAction) pauseAction()
     const { start, now, timeBeforePause } = this.state
     const timeBeforePauseNew = now - start + timeBeforePause
     this.setState({ timeBeforePause: timeBeforePauseNew, now: 0, start: 0 })
@@ -88,9 +88,9 @@ class Stopwatch extends Component {
   reset = () => {
     clearInterval(this.timer)
     const {
-      resetButton: { action },
+      resetButton: { resetAction },
     } = this.props
-    if (action) action()
+    if (resetAction) resetAction()
     this.setState({
       start: 0,
       now: 0,
@@ -105,10 +105,20 @@ class Stopwatch extends Component {
     let lapTime = now - start + timeBeforePause - timePrevLap
     let timePrevLapNew = now - start + timeBeforePause
     this.setState({ lapTime, timePrevLap: timePrevLapNew })
+
+    const pad = n => (n < 10 ? '0' + n : n)
+    const duration = moment.duration(lapTime)
+    const centiseconds = Math.floor(duration.milliseconds() / 10)
+    const formattedLapTime =
+      pad(duration.minutes()) +
+      ':' +
+      pad(duration.seconds()) +
+      '.' +
+      pad(centiseconds)
     const {
-      lapButton: { action },
+      lapButton: { lapAction },
     } = this.props
-    if (action) action()
+    if (lapAction) lapAction(lapTime, formattedLapTime)
   }
 
   render() {
