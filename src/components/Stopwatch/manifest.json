@@ -138,7 +138,7 @@
           "name": "lapTextSize",
           "displayName": "Lap Text Size",
           "type": "number",
-          "default": "12"
+          "default": 12
         },
         {
           "name": "lapAction",
