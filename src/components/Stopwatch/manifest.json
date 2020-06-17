@@ -147,13 +147,11 @@
           "arguments": [
             {
               "type": "number",
-              "displayName": "Time (milliseconds)",
-              "fieldId": "lapTimeNumber"
+              "displayName": "Time (milliseconds)"
             },
             {
               "type": "text",
-              "displayName": "Time (text)",
-              "fieldId": "lapTimeString"
+              "displayName": "Time (text)"
             }
           ]
         }
