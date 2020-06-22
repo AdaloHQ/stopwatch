@@ -49,7 +49,7 @@
         },
         {
           "name": "startAction",
-          "displayName": "Action",
+          "displayName": "Additional Actions when Start Button is Pressed",
           "type": "action"
         }
       ]
@@ -95,7 +95,7 @@
         },
         {
           "name": "resetAction",
-          "displayName": "Action",
+          "displayName": "Additional Actions when Reset Button is Pressed",
           "type": "action"
         }
       ]
@@ -142,7 +142,7 @@
         },
         {
           "name": "lapAction",
-          "displayName": "Action",
+          "displayName": "Additional Actions when Lap Button is Pressed",
           "type": "action",
           "arguments": [
             {
