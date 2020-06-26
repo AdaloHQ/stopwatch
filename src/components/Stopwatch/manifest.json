@@ -3,6 +3,7 @@
   "defaultWidth": 375,
   "defaultHeight": 100,
   "components": "./index.js",
+  "icon": "./icon.png",
   "props": [
     {
       "name": "timeColor",

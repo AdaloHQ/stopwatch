@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "main": "index.js",
+  "author": "Adalo",
   "scripts": {
     "start": "adalo dev",
     "build": "adalo build",
