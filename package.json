@@ -4,11 +4,15 @@
   "license": "MIT",
   "main": "index.js",
   "author": "Adalo",
+  "description": "Log the amount of time an activity takes. Supports lap functionality.",
   "scripts": {
     "start": "adalo dev",
     "build": "adalo build",
     "login": "adalo login",
-    "publish": "adalo publish",
+    "publish": " adalo publish",
+    "publish:local": "REGISTRY_URL=http://localhost:8000 yarn run publish",
+    "deploy": "adalo deploy",
+    "deploy:local": "REGISTRY_URL=http://localhost:8000 yarn run deploy",
     "lint": "eslint src --ext .js",
     "prettier": "prettier --write *.js src/*.js \"src/**/*.js\"",
     "start:local": "ADALO_DEV_SERVER=http://localhost:3035 yarn start",
@@ -16,6 +20,7 @@
   },
   "peerDependencies": {},
   "adalo": {
+    "logo": "./logo.png",
     "displayName": "Stopwatch",
     "components": [
       {
