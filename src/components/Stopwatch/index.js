@@ -140,7 +140,6 @@ class Stopwatch extends Component {
     const {
       timeColor,
       fontSize,
-      iconFullWidth,
       showMsec,
       startButton,
       pauseButton,

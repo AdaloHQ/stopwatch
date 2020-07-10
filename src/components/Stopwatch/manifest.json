@@ -18,13 +18,6 @@
       "default": 30
     },
     {
-      "name": "iconFullWidth",
-      "displayName": "Spread Icons to the Full Width?",
-      "type": "boolean",
-      "default": false
-    },
-
-    {
       "name": "showMsec",
       "displayName": "Show Milliseconds?",
       "type": "boolean",
