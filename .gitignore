@@ -1,2 +1,6 @@
 node_modules
+<<<<<<< HEAD
 .watchmanconfig
+=======
+dist
+>>>>>>> cda16ad76ebbfc9ad976ee359d1820fd74af2dd8
