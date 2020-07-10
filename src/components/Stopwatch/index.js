@@ -68,7 +68,11 @@ class Stopwatch extends Component {
         now,
       })
     }
-    if (startAction) startAction()
+    //Current time = now - start + timeBeforePause
+    const { start, timeBeforePause } = this.state
+    const time = now - start + timeBeforePause
+    const formattedTime = this.formatTime(time)
+    if (startAction) startAction(time, formattedTime)
     this.timer = setInterval(() => {
       this.setState({ now: new Date().getTime() })
     }, 10)
@@ -79,10 +83,13 @@ class Stopwatch extends Component {
     const {
       pauseButton: { pauseAction },
     } = this.props
-    if (pauseAction) pauseAction()
     const { start, now, timeBeforePause } = this.state
     const timeBeforePauseNew = now - start + timeBeforePause
     this.setState({ timeBeforePause: timeBeforePauseNew, now: 0, start: 0 })
+    //Current time = now - start + timeBeforePause
+    const time = now - start + timeBeforePause
+    const formattedTime = this.formatTime(time)
+    if (pauseAction) pauseAction(time, formattedTime)
   }
 
   reset = () => {
@@ -90,7 +97,12 @@ class Stopwatch extends Component {
     const {
       resetButton: { resetAction },
     } = this.props
-    if (resetAction) resetAction()
+    //Current time = now - start + timeBeforePause
+    const { start, now, timeBeforePause } = this.state
+    const time = now - start + timeBeforePause
+    const formattedTime = this.formatTime(time)
+    if (resetAction) resetAction(time, formattedTime)
+
     this.setState({
       start: 0,
       now: 0,
@@ -105,22 +117,25 @@ class Stopwatch extends Component {
     let lapTime = now - start + timeBeforePause - timePrevLap
     let timePrevLapNew = now - start + timeBeforePause
     this.setState({ lapTime, timePrevLap: timePrevLapNew })
-
-    const pad = n => (n < 10 ? '0' + n : n)
-    const duration = moment.duration(lapTime)
-    const centiseconds = Math.floor(duration.milliseconds() / 10)
-    const formattedLapTime =
-      pad(duration.minutes()) +
-      ':' +
-      pad(duration.seconds()) +
-      '.' +
-      pad(centiseconds)
+    const formattedLapTime = this.formatTime(lapTime)
     const {
       lapButton: { lapAction },
     } = this.props
     if (lapAction) lapAction(lapTime, formattedLapTime)
   }
 
+  formatTime = time => {
+    const pad = n => (n < 10 ? '0' + n : n)
+    const duration = moment.duration(time)
+    const centiseconds = Math.floor(duration.milliseconds() / 10)
+    return (
+      pad(duration.minutes()) +
+      ':' +
+      pad(duration.seconds()) +
+      '.' +
+      pad(centiseconds)
+    )
+  }
   render() {
     const {
       timeColor,
@@ -136,7 +151,13 @@ class Stopwatch extends Component {
     const { now, start, timeBeforePause } = this.state
     const time = now - start + timeBeforePause
     const styles = {
-      wrapper: {},
+      wrapper: {
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      innerWrapper: {
+        justifyContent: 'center',
+      },
       lapStyle: {
         fontSize: lapButton.lapTextSize,
         color: this.state.lapTime ? lapButton.lapColor : '#FFFFFF00',
@@ -154,27 +175,26 @@ class Stopwatch extends Component {
       },
       outerContainerIcon: {
         justifyContent: 'center',
-        alignItems: iconFullWidth ? null : 'center',
+        alignItems: 'center',
       },
       containerIcon: {
         flexDirection: 'row',
         flex: 1,
         alignItems: 'center',
         justifyContent: 'space-around',
-        width: iconFullWidth ? null : 140,
       },
       showMsec,
     }
 
     return (
       <View style={styles.wrapper}>
-        <Lap
-          interval={this.state.lapTime}
-          style={styles}
-          lapPrefix={lapButton.lapText}
-        />
-        <Timer interval={time} style={styles} />
-        <View style={styles.outerContainerIcon}>
+        <View style={styles.innerWrapper}>
+          <Lap
+            interval={this.state.lapTime}
+            style={styles}
+            lapPrefix={lapButton.lapText}
+          />
+          <Timer interval={time} style={styles} />
           <View style={styles.containerIcon}>
             <IconToggle
               name={resetButton.iconName}

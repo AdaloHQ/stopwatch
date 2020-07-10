@@ -1,6 +1,6 @@
 {
   "displayName": "Stopwatch",
-  "defaultWidth": 375,
+  "defaultWidth": 175,
   "defaultHeight": 100,
   "components": "./index.js",
   "icon": "./icon.png",
@@ -46,12 +46,22 @@
           "name": "color",
           "displayName": "Icon Color",
           "type": "color",
-          "default": "#757575"
+          "default": "@primary"
         },
         {
           "name": "startAction",
           "displayName": "Additional Actions when Start Button is Pressed",
-          "type": "action"
+          "type": "action",
+          "arguments": [
+            {
+              "type": "number",
+              "displayName": "Time (milliseconds)"
+            },
+            {
+              "type": "text",
+              "displayName": "Time (text)"
+            }
+          ]
         }
       ]
     },
@@ -69,12 +79,22 @@
           "name": "color",
           "displayName": "Icon Color",
           "type": "color",
-          "default": "#757575"
+          "default": "@primary"
         },
         {
           "name": "pauseAction",
           "displayName": "Action",
-          "type": "action"
+          "type": "action",
+          "arguments": [
+            {
+              "type": "number",
+              "displayName": "Time (milliseconds)"
+            },
+            {
+              "type": "text",
+              "displayName": "Time (text)"
+            }
+          ]
         }
       ]
     },
@@ -92,12 +112,22 @@
           "name": "color",
           "displayName": "Icon Color",
           "type": "color",
-          "default": "#757575"
+          "default": "@primary"
         },
         {
           "name": "resetAction",
           "displayName": "Additional Actions when Reset Button is Pressed",
-          "type": "action"
+          "type": "action",
+          "arguments": [
+            {
+              "type": "number",
+              "displayName": "Time (milliseconds)"
+            },
+            {
+              "type": "text",
+              "displayName": "Time (text)"
+            }
+          ]
         }
       ]
     },
@@ -120,7 +150,7 @@
           "name": "color",
           "displayName": "Icon Color",
           "type": "color",
-          "default": "#757575"
+          "default": "@primary"
         },
         {
           "name": "lapText",
