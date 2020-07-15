@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
+import { Text, View } from 'react-native'
 import { IconToggle } from '@protonapp/react-native-material-ui'
 import moment from 'moment'
 
@@ -149,6 +149,10 @@ class Stopwatch extends Component {
 
     const { now, start, timeBeforePause } = this.state
     const time = now - start + timeBeforePause
+    //const timerWidth = 5.25 * fontSize
+    //const lapMargin = timerWidth >= 178 ? 0 : (178 - timerWidth) / 2
+    const iconSize = Math.floor(fontSize * 0.7)
+    //console.log('rerendering, iconSize: ', iconSize, ', fontSize: ', fontSize)
     const styles = {
       wrapper: {
         justifyContent: 'center',
@@ -159,7 +163,7 @@ class Stopwatch extends Component {
       },
       lapStyle: {
         fontSize: lapButton.lapTextSize,
-        color: this.state.lapTime ? lapButton.lapColor : '#FFFFFF00',
+        color: lapButton.lapColor,
       },
       containerTimer: {
         flexDirection: 'row',
@@ -198,28 +202,28 @@ class Stopwatch extends Component {
             <IconToggle
               name={resetButton.iconName}
               color={resetButton.color}
-              size={24}
+              size={iconSize}
               onPress={this.reset}
             />
             {this.state.start ? (
               <IconToggle
                 name={pauseButton.iconName}
                 color={pauseButton.color}
-                size={24}
+                size={iconSize}
                 onPress={this.pause}
               />
             ) : (
               <IconToggle
                 name={startButton.iconName}
                 color={startButton.color}
-                size={24}
+                size={iconSize}
                 onPress={this.start}
               />
             )}
             <IconToggle
               name={lapButton.iconName}
               color={lapButton.enabled ? lapButton.color : '#FFFFFF00'}
-              size={24}
+              size={iconSize}
               onPress={lapButton.enabled ? this.lap : null}
             />
           </View>

@@ -27,7 +27,8 @@
         "name": "Stopwatch",
         "manifest": "./src/components/Stopwatch/manifest.json"
       }
-    ]
+    ],
+    "webpackConfig": "./webpackConfig.js"
   },
   "devDependencies": {
     "@adalo/cli": "^0.0.37",
