@@ -1,6 +1,6 @@
 {
   "name": "stopwatch",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "main": "index.js",
   "author": "Adalo",
@@ -27,8 +27,7 @@
         "name": "Stopwatch",
         "manifest": "./src/components/Stopwatch/manifest.json"
       }
-    ],
-    "webpackConfig": "./webpackConfig.js"
+    ]
   },
   "devDependencies": {
     "@adalo/cli": "^0.0.37",
