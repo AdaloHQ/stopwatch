@@ -200,6 +200,7 @@ class Stopwatch extends Component {
           <Timer interval={time} style={styles} />
           <View style={styles.containerIcon}>
             <IconToggle
+              key={`resetButton.${iconSize}`}
               name={resetButton.iconName}
               color={resetButton.color}
               size={iconSize}
@@ -207,6 +208,7 @@ class Stopwatch extends Component {
             />
             {this.state.start ? (
               <IconToggle
+                key={`pauseButton.${iconSize}`}
                 name={pauseButton.iconName}
                 color={pauseButton.color}
                 size={iconSize}
@@ -214,6 +216,7 @@ class Stopwatch extends Component {
               />
             ) : (
               <IconToggle
+                key={`startButton.${iconSize}`}
                 name={startButton.iconName}
                 color={startButton.color}
                 size={iconSize}
@@ -221,6 +224,7 @@ class Stopwatch extends Component {
               />
             )}
             <IconToggle
+              key={`lapButton.${iconSize}`}
               name={lapButton.iconName}
               color={lapButton.enabled ? lapButton.color : '#FFFFFF00'}
               size={iconSize}
