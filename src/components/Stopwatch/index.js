@@ -140,6 +140,7 @@ class Stopwatch extends Component {
     const {
       timeColor,
       fontSize,
+      iconSize,
       showMsec,
       startButton,
       pauseButton,
@@ -149,10 +150,6 @@ class Stopwatch extends Component {
 
     const { now, start, timeBeforePause } = this.state
     const time = now - start + timeBeforePause
-    //const timerWidth = 5.25 * fontSize
-    //const lapMargin = timerWidth >= 178 ? 0 : (178 - timerWidth) / 2
-    const iconSize = Math.floor(fontSize * 0.7)
-    //console.log('rerendering, iconSize: ', iconSize, ', fontSize: ', fontSize)
     const styles = {
       wrapper: {
         justifyContent: 'center',
