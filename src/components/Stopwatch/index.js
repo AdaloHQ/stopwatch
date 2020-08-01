@@ -146,9 +146,11 @@ class Stopwatch extends Component {
       pauseButton,
       resetButton,
       lapButton,
+      editor,
     } = this.props
 
-    const { now, start, timeBeforePause } = this.state
+    const { now, start, timeBeforePause, lapTime } = this.state
+    const showLap = lapButton.enabled && (editor || lapTime != 0)
     const time = now - start + timeBeforePause
     const styles = {
       wrapper: {
@@ -160,7 +162,7 @@ class Stopwatch extends Component {
       },
       lapStyle: {
         fontSize: lapButton.lapTextSize,
-        color: lapButton.lapColor,
+        color: showLap ? lapButton.lapColor : '#FFFFFF00',
       },
       containerTimer: {
         flexDirection: 'row',
@@ -172,6 +174,7 @@ class Stopwatch extends Component {
       textTimer: {
         fontSize,
         color: timeColor,
+        fontFamily: 'monospace',
       },
       outerContainerIcon: {
         justifyContent: 'center',
