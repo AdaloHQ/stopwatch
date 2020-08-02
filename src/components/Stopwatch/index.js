@@ -8,13 +8,13 @@ function Timer({ interval, style }) {
   const pad = n => (n < 10 ? '0' + n : n)
   const duration = moment.duration(interval)
   const centiseconds = Math.floor(duration.milliseconds() / 10)
+  const centiStyle = { ...style.textTimer }
+  centiStyle.color = style.showMsec ? centiStyle.color : '#FFFFFF00'
   return (
     <View style={style.containerTimer}>
       <Text style={style.textTimer}>{pad(duration.minutes())}:</Text>
       <Text style={style.textTimer}>{pad(duration.seconds())}</Text>
-      {style.showMsec ? (
-        <Text style={style.textTimer}>.{pad(centiseconds)}</Text>
-      ) : null}
+      <Text style={centiStyle}>.{pad(centiseconds)}</Text>
     </View>
   )
 }
