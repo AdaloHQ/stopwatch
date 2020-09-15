@@ -1,0 +1,30 @@
+name: Deploy Production
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 13
+      - name: Installing dependencies
+        run: yarn install --frozen-lockfile
+      - name: Incrementing package version
+        uses: phips28/gh-action-bump-version@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup .adalorc
+        run: echo "${TOKEN}" > ~/.adalorc
+        env:
+          TOKEN: ${{secrets.LIBRARY_DEPLOY_TOKEN}}
+      - name: Print token
+        run: cat ~/.adalorc
+      - name: Push to Component Registry
+        run: npx adalo publish
