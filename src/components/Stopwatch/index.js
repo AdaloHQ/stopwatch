@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, Platform } from 'react-native'
 import { IconToggle } from '@protonapp/react-native-material-ui'
 import moment from 'moment'
 
@@ -174,7 +174,17 @@ class Stopwatch extends Component {
       textTimer: {
         fontSize,
         color: timeColor,
-        fontFamily: 'monospace',
+        ...Platform.select({
+          ios: {
+            fontVariant: 'tabular-nums',
+          },
+          android: {
+            fontVariant: 'tabular-nums',
+          },
+          web: {
+            fontVariantNumeric: 'tabular-nums',
+          },
+        }),
       },
       outerContainerIcon: {
         justifyContent: 'center',
