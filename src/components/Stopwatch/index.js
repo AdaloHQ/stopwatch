@@ -176,10 +176,10 @@ class Stopwatch extends Component {
         color: timeColor,
         ...Platform.select({
           ios: {
-            fontVariant: 'tabular-nums',
+            fontVariant: ['tabular-nums'],
           },
           android: {
-            fontVariant: 'tabular-nums',
+            fontVariant: ['tabular-nums'],
           },
           web: {
             fontVariantNumeric: 'tabular-nums',
