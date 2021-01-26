@@ -147,6 +147,7 @@ class Stopwatch extends Component {
       resetButton,
       lapButton,
       editor,
+      _fonts,
     } = this.props
 
     const { now, start, timeBeforePause, lapTime } = this.state
@@ -189,6 +190,7 @@ class Stopwatch extends Component {
             fontVariantNumeric: 'tabular-nums',
           },
         }),
+        fontFamily: _fonts.body,
       },
       outerContainerIcon: {
         justifyContent: 'center',
@@ -210,7 +212,10 @@ class Stopwatch extends Component {
       if (!showLap) {
         styles.lapStyle.color = '#FFFFFF00'
       }
+    } else if (_fonts) {
+      styles.lapStyle.fontFamily = _fonts.body
     }
+
     return (
       <View style={styles.wrapper}>
         <View style={styles.innerWrapper}>
