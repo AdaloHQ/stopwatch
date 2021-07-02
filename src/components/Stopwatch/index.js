@@ -12,8 +12,9 @@ function Timer({ interval, style }) {
   centiStyle.color = style.showMsec ? centiStyle.color : '#FFFFFF00'
   return (
     <View style={style.containerTimer}>
-      <Text style={style.textTimer}>{pad(duration.minutes())}:</Text>
-      <Text style={style.textTimer}>{pad(duration.seconds())}</Text>
+      <Text style={style.textTimer}>
+        {pad(duration.minutes())}:{pad(duration.seconds())}
+      </Text>
       <Text style={centiStyle}>.{pad(centiseconds)}</Text>
     </View>
   )
@@ -26,9 +27,8 @@ function Lap({ interval, style, lapPrefix }) {
   return (
     <View style={style.containerLap}>
       <Text style={style.lapStyle}>
-        {lapPrefix} {pad(duration.minutes())}:
+        {lapPrefix} {pad(duration.minutes())}:{pad(duration.seconds())}
       </Text>
-      <Text style={style.lapStyle}>{pad(duration.seconds())}</Text>
       {style.showMsec ? (
         <Text style={style.lapStyle}>.{pad(centiseconds)}</Text>
       ) : null}
@@ -192,7 +192,6 @@ class Stopwatch extends Component {
       },
       containerIcon: {
         flexDirection: 'row',
-        flex: 1,
         alignItems: 'center',
         justifyContent: 'space-around',
       },
