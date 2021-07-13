@@ -1,7 +1,8 @@
 {
   "displayName": "Stopwatch",
-  "defaultWidth": 175,
-  "defaultHeight": 100,
+  "defaultWidth": 126,
+  "defaultHeight": 90,
+  "resizeX": false,
   "components": "./index.js",
   "icon": "./icon.png",
   "props": [
