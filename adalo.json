@@ -1,0 +1,12 @@
+{
+  "author": "Adalo",
+  "description": "Log the amount of time an activity takes. Supports lap functionality.",
+  "logo": "./logo.png",
+  "displayName": "Stopwatch",
+  "components": [
+    {
+      "name": "Stopwatch",
+      "manifest": "./src/components/Stopwatch/manifest.json"
+    }
+  ]
+}

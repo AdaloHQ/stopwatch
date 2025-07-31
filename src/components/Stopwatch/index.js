@@ -157,6 +157,7 @@ class Stopwatch extends Component {
       wrapper: {
         justifyContent: 'center',
         alignItems: 'center',
+        width: 126
       },
       innerWrapper: {
         justifyContent: 'center',

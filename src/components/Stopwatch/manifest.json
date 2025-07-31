@@ -50,6 +50,7 @@
           "name": "iconName",
           "displayName": "Icon",
           "type": "icon",
+          "customIcons": true,
           "default": "play-arrow"
         },
         {
@@ -83,6 +84,7 @@
           "name": "iconName",
           "displayName": "Icon",
           "type": "icon",
+          "customIcons": true,
           "default": "pause"
         },
         {
@@ -116,6 +118,7 @@
           "name": "iconName",
           "displayName": "Icon",
           "type": "icon",
+          "customIcons": true,
           "default": "replay"
         },
         {
@@ -154,6 +157,7 @@
           "name": "iconName",
           "displayName": "Icon",
           "type": "icon",
+          "customIcons": true,
           "default": "timer"
         },
         {
