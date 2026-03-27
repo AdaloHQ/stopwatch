@@ -37,8 +37,9 @@
     "prettier": "^1.19.1"
   },
   "dependencies": {
-    "@protonapp/react-native-material-ui": "^2.0.10",
+    "@protonapp/react-native-material-ui": "https://github.com/AdaloHQ/react-native-material-ui.git#upgrade-rn",
     "moment": "^2.26.0",
+    "react-native-svg": "13",
     "react-native-vector-icons": "10.2.0"
   }
 }
